@@ -102,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Tabela.resx">
       <DependentUpon>Tabela.cs</DependentUpon>
@@ -119,6 +120,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\desing_dos_sites-removebg-preview%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\MicrosoftTeams-image__1_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\MicrosoftTeams-image-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
