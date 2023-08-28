@@ -330,7 +330,7 @@
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(12, 262);
+            this.reset.Location = new System.Drawing.Point(12, 611);
             this.reset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(84, 29);
