@@ -100,7 +100,7 @@ namespace Bakery_stock
                     tableLayoutPanel1.Controls.Add(labels5, 4, i); // adicionar o label na tabela na coluna 4 e na linha i - 1
 
                     Label labels6 = new Label(); // criar um label para o preço do produto
-                    labels6.Text = produtos[i].Preco.ToString(); // atribuir o texto do label
+                    labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
                     tableLayoutPanel1.Controls.Add(labels6, 5, i); // adicionar o label na tabela na coluna 5 e na linha i - 1
                 }
                
@@ -154,7 +154,7 @@ namespace Bakery_stock
                     tableLayoutPanel1.Controls.Add(labels5, 4, i); // adicionar o label na tabela na coluna 4 e na linha i - 1
 
                     Label labels6 = new Label(); // criar um label para o preço do produto
-                    labels6.Text = precotxt.Text; // atribuir o texto do label
+                    labels6.Text = "R$ " + precotxt.Text; // atribuir o texto do label
                     tableLayoutPanel1.Controls.Add(labels6, 5, i); // adicionar o label na tabela na coluna 5 e na linha i - 1
 
                     i = 5000;
@@ -243,7 +243,7 @@ namespace Bakery_stock
                         tableLayoutPanel1.Controls.Add(labels5, 4, a); // adicionar o label na tabela na coluna 4 e na linha i - 1
 
                         Label labels6 = new Label(); // criar um label para o preço do produto
-                        labels6.Text = produtos[i].Preco.ToString(); // atribuir o texto do label
+                        labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
                         tableLayoutPanel1.Controls.Add(labels6, 5, a); // adicionar o label na tabela na coluna 5 e na linha i - 1
 
                         a++;
@@ -308,7 +308,7 @@ namespace Bakery_stock
                         tableLayoutPanel1.Controls.Add(labels5, 4, a);
 
                         Label labels6 = new Label(); // criar um label para o preço do produto
-                        labels6.Text = produtos[i].Preco.ToString(); // atribuir o texto do label
+                        labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
                         tableLayoutPanel1.Controls.Add(labels6, 5, a); 
 
                         a--;
@@ -328,157 +328,213 @@ namespace Bakery_stock
 
             // Percorrer a lista pelo nome
             int linha = 1;
-            for(int i = produtos.Count - 1; i > 0; i--)
+            if (nomep.Text.ToString() != "" || validadep.Text.ToString() != "" || fornecedorp.Text.ToString() != "" || quantidadep.Text.ToString() != "" || precop.Text.ToString() != "")
             {
-                tableLayoutPanel1.Controls.Clear();
-                CriarLabels();
-
-                if (linha == 15)
+                for (int i = produtos.Count - 1; i > 0; i--)
                 {
+                    tableLayoutPanel1.Controls.Clear();
+                    CriarLabels();
+
+                    if (linha == 15)
+                    {
+
+                    }
+                    else if (produtos[i].Nome.ToUpper() == nomep.Text.ToUpper())
+                    {
+                        Label labels1 = new Label(); // criar um label para o id do produto
+                        labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels1, 0, linha);
+
+                        Label labels2 = new Label(); // criar um label para o nome do produto
+                        labels2.Text = produtos[i].Nome; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels2, 1, linha);
+
+                        Label labels3 = new Label(); // criar um label para a validade do produto
+                        labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels3, 2, linha);
+
+                        Label labels4 = new Label(); // criar um label para o fornecedor do produto
+                        labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels4, 3, linha);
+
+                        Label labels5 = new Label(); // criar um label para a quantidade do produto
+                        labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels5, 4, linha);
+
+                        Label labels6 = new Label(); // criar um label para o preço do produto
+                        labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels6, 5, linha);
+                        linha++;
+                    }
+
+                    else if (produtos[i].Validade.ToString() == validadep.Text)
+                    {
+                        Label labels1 = new Label(); // criar um label para o id do produto
+                        labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels1, 0, linha);
+
+                        Label labels2 = new Label(); // criar um label para o nome do produto
+                        labels2.Text = produtos[i].Nome; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels2, 1, linha);
+
+                        Label labels3 = new Label(); // criar um label para a validade do produto
+                        labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels3, 2, linha);
+
+                        Label labels4 = new Label(); // criar um label para o fornecedor do produto
+                        labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels4, 3, linha);
+
+                        Label labels5 = new Label(); // criar um label para a quantidade do produto
+                        labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels5, 4, linha);
+
+                        Label labels6 = new Label(); // criar um label para o preço do produto
+                        labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels6, 5, linha);
+                        linha++;
+                    }
+
+                    else if (produtos[i].Fornecedor.ToString() == validadep.Text.ToUpper())
+                    {
+                        Label labels1 = new Label(); // criar um label para o id do produto
+                        labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels1, 0, linha);
+
+                        Label labels2 = new Label(); // criar um label para o nome do produto
+                        labels2.Text = produtos[i].Nome; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels2, 1, linha);
+
+                        Label labels3 = new Label(); // criar um label para a validade do produto
+                        labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels3, 2, linha);
+
+                        Label labels4 = new Label(); // criar um label para o fornecedor do produto
+                        labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels4, 3, linha);
+
+                        Label labels5 = new Label(); // criar um label para a quantidade do produto
+                        labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels5, 4, linha);
+
+                        Label labels6 = new Label(); // criar um label para o preço do produto
+                        labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels6, 5, linha);
+                        linha++;
+                    }
+
+                    else if (produtos[i].Quantidade.ToString() == quantidadep.Text.ToUpper())
+                    {
+                        Label labels1 = new Label(); // criar um label para o id do produto
+                        labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels1, 0, linha);
+
+                        Label labels2 = new Label(); // criar um label para o nome do produto
+                        labels2.Text = produtos[i].Nome; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels2, 1, linha);
+
+                        Label labels3 = new Label(); // criar um label para a validade do produto
+                        labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels3, 2, linha);
+
+                        Label labels4 = new Label(); // criar um label para o fornecedor do produto
+                        labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels4, 3, linha);
+
+                        Label labels5 = new Label(); // criar um label para a quantidade do produto
+                        labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels5, 4, linha);
+
+                        Label labels6 = new Label(); // criar um label para o preço do produto
+                        labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels6, 5, linha);
+                        linha++;
+                    }
+
+                    else if (produtos[i].Preco.ToString() == precop.Text.ToUpper())
+                    {
+                        Label labels1 = new Label(); // criar um label para o id do produto
+                        labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels1, 0, linha);
+
+                        Label labels2 = new Label(); // criar um label para o nome do produto
+                        labels2.Text = produtos[i].Nome; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels2, 1, linha);
+
+                        Label labels3 = new Label(); // criar um label para a validade do produto
+                        labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels3, 2, linha);
+
+                        Label labels4 = new Label(); // criar um label para o fornecedor do produto
+                        labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels4, 3, linha);
+
+                        Label labels5 = new Label(); // criar um label para a quantidade do produto
+                        labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels5, 4, linha);
+
+                        Label labels6 = new Label(); // criar um label para o preço do produto
+                        labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels6, 5, linha);
+                        linha++;
+                    }
 
                 }
-                else if (produtos[i].Nome.ToUpper() == nomep.Text.ToUpper())
+            }
+            
+            
+        }
+
+        private void reset_Click(object sender, EventArgs e)
+        {
+            tableLayoutPanel1.Controls.Clear();
+            CriarLabels();
+            contador.Text = "1";
+            tableLayoutPanel1.AutoScroll = true;
+
+            // Ler o arquivo JSON existente
+            string value = File.ReadAllText("Prod.json");
+            List<Produto> produtos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Produto>>(value);
+            bool condicional = false;
+            int conta = produtos.Count;
+
+
+            for (int i = 1; i < 16; i++)
+            {
+
+                if (conta == 1 || i == conta)
+                {
+                    break;
+                }
+
+                else
                 {
                     Label labels1 = new Label(); // criar um label para o id do produto
                     labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels1, 0, linha);
+                    tableLayoutPanel1.Controls.Add(labels1, 0, i); // adicionar o label na tabela na coluna 1 e na linha i - 1
 
                     Label labels2 = new Label(); // criar um label para o nome do produto
                     labels2.Text = produtos[i].Nome; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels2, 1, linha);
+                    tableLayoutPanel1.Controls.Add(labels2, 1, i); // adicionar o label na tabela na coluna 1 e na linha i - 1
 
                     Label labels3 = new Label(); // criar um label para a validade do produto
-                    labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels3, 2, linha);
+                    labels3.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
+                    tableLayoutPanel1.Controls.Add(labels3, 2, i); // adicionar o label na tabela na coluna 2 e na linha i - 1
 
                     Label labels4 = new Label(); // criar um label para o fornecedor do produto
-                    labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels4, 3, linha);
+                    labels4.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
+                    tableLayoutPanel1.Controls.Add(labels4, 3, i); // adicionar o label na tabela na coluna 3 e na linha i - 1
 
                     Label labels5 = new Label(); // criar um label para a quantidade do produto
-                    labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels5, 4, linha);
+                    labels5.Text = produtos[i].Fornecedor; // atribuir o texto do label
+                    tableLayoutPanel1.Controls.Add(labels5, 4, i); // adicionar o label na tabela na coluna 4 e na linha i - 1
 
                     Label labels6 = new Label(); // criar um label para o preço do produto
-                    labels6.Text = produtos[i].Preco.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels6, 5, linha);
-                    linha++;
-                }
-
-                else if (produtos[i].Validade.ToString() == validadep.Text)
-                {
-                    Label labels1 = new Label(); // criar um label para o id do produto
-                    labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels1, 0, linha);
-
-                    Label labels2 = new Label(); // criar um label para o nome do produto
-                    labels2.Text = produtos[i].Nome; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels2, 1, linha);
-
-                    Label labels3 = new Label(); // criar um label para a validade do produto
-                    labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels3, 2, linha);
-
-                    Label labels4 = new Label(); // criar um label para o fornecedor do produto
-                    labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels4, 3, linha);
-
-                    Label labels5 = new Label(); // criar um label para a quantidade do produto
-                    labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels5, 4, linha);
-
-                    Label labels6 = new Label(); // criar um label para o preço do produto
-                    labels6.Text = produtos[i].Preco.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels6, 5, linha);
-                    linha++;
-                }
-
-                else if (produtos[i].Fornecedor.ToString() == validadep.Text.ToUpper())
-                {
-                    Label labels1 = new Label(); // criar um label para o id do produto
-                    labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels1, 0, linha);
-
-                    Label labels2 = new Label(); // criar um label para o nome do produto
-                    labels2.Text = produtos[i].Nome; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels2, 1, linha);
-
-                    Label labels3 = new Label(); // criar um label para a validade do produto
-                    labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels3, 2, linha);
-
-                    Label labels4 = new Label(); // criar um label para o fornecedor do produto
-                    labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels4, 3, linha);
-
-                    Label labels5 = new Label(); // criar um label para a quantidade do produto
-                    labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels5, 4, linha);
-
-                    Label labels6 = new Label(); // criar um label para o preço do produto
-                    labels6.Text = produtos[i].Preco.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels6, 5, linha);
-                    linha++;
-                }
-
-                else if (produtos[i].Quantidade.ToString() == quantidadep.Text.ToUpper())
-                {
-                    Label labels1 = new Label(); // criar um label para o id do produto
-                    labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels1, 0, linha);
-
-                    Label labels2 = new Label(); // criar um label para o nome do produto
-                    labels2.Text = produtos[i].Nome; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels2, 1, linha);
-
-                    Label labels3 = new Label(); // criar um label para a validade do produto
-                    labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels3, 2, linha);
-
-                    Label labels4 = new Label(); // criar um label para o fornecedor do produto
-                    labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels4, 3, linha);
-
-                    Label labels5 = new Label(); // criar um label para a quantidade do produto
-                    labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels5, 4, linha);
-
-                    Label labels6 = new Label(); // criar um label para o preço do produto
-                    labels6.Text = produtos[i].Preco.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels6, 5, linha);
-                    linha++;
-                }
-
-                else if (produtos[i].Preco.ToString() == precop.Text.ToUpper())
-                {
-                    Label labels1 = new Label(); // criar um label para o id do produto
-                    labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels1, 0, linha);
-
-                    Label labels2 = new Label(); // criar um label para o nome do produto
-                    labels2.Text = produtos[i].Nome; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels2, 1, linha);
-
-                    Label labels3 = new Label(); // criar um label para a validade do produto
-                    labels3.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels3, 2, linha);
-
-                    Label labels4 = new Label(); // criar um label para o fornecedor do produto
-                    labels4.Text = produtos[i].Fornecedor; // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels4, 3, linha);
-
-                    Label labels5 = new Label(); // criar um label para a quantidade do produto
-                    labels5.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels5, 4, linha);
-
-                    Label labels6 = new Label(); // criar um label para o preço do produto
-                    labels6.Text = produtos[i].Preco.ToString(); // atribuir o texto do label
-                    tableLayoutPanel1.Controls.Add(labels6, 5, linha);
-                    linha++;
+                    labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
+                    tableLayoutPanel1.Controls.Add(labels6, 5, i); // adicionar o label na tabela na coluna 5 e na linha i - 1
                 }
 
             }
-            
         }
     }
 }
