@@ -122,6 +122,7 @@ namespace Bakery_stock
 
         private void adicionar_Click(object sender, EventArgs e)
         {
+            string us = "a";
             int h = 0;
             // Ler o arquivo JSON existente
             string value = File.ReadAllText("Prod.json");
@@ -129,24 +130,27 @@ namespace Bakery_stock
 
             int adicionar = produtos.Count;
 
+            int sa = produtos.Count - 1;
 
-            // Criar um novo objeto Pessoa
-
-
-            // Adicionar o novo objeto à lista
-
-
-
+            string sab = sa.ToString();
 
             Control naoerro = tableLayoutPanel1.GetControlFromPosition(0, 15);
+            int q = Convert.ToInt32(naoerro);
 
-            if (naoerro != null && )
+            if (sa == q)
+            {
+                us = naoerro.Text;
+            }
+            
+
+
+            if (naoerro != null && sab  == us)
             {
                 prox();
                 h = 1;
             }
 
-            if(h == 1)
+            if(h != 1)
             {
                 if (nometxt.Text != "" || validadetxt.Text != "" || quantidadetxt.Text != "" || precotxt.Text != "")
                 {
