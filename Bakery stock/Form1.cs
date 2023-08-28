@@ -58,5 +58,15 @@ namespace Bakery_stock
             form.Show(); // Exibe o form Tabela
             this.Hide(); // Esconde o form Form1
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
