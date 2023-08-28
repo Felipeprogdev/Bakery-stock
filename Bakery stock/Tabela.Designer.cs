@@ -55,6 +55,7 @@
             this.precop = new System.Windows.Forms.TextBox();
             this.procurar = new System.Windows.Forms.Button();
             this.reset = new System.Windows.Forms.Button();
+            this.gasto = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // quantidade
@@ -315,12 +316,22 @@
             this.reset.UseVisualStyleBackColor = true;
             this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
+            // gasto
+            // 
+            this.gasto.AutoSize = true;
+            this.gasto.Location = new System.Drawing.Point(1131, 59);
+            this.gasto.Name = "gasto";
+            this.gasto.Size = new System.Drawing.Size(89, 16);
+            this.gasto.TabIndex = 47;
+            this.gasto.Text = "Você gastou: ";
+            // 
             // Tabela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1370, 743);
+            this.Controls.Add(this.gasto);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.procurar);
             this.Controls.Add(this.precop);
@@ -385,5 +396,6 @@
         private System.Windows.Forms.TextBox precop;
         private System.Windows.Forms.Button procurar;
         private System.Windows.Forms.Button reset;
+        private System.Windows.Forms.Label gasto;
     }
 }
