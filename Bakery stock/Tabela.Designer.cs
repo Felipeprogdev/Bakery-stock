@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tabela));
             this.quantidade = new System.Windows.Forms.Label();
             this.fornecedor = new System.Windows.Forms.Label();
             this.validade = new System.Windows.Forms.Label();
@@ -54,12 +55,21 @@
             this.procurar = new System.Windows.Forms.Button();
             this.reset = new System.Windows.Forms.Button();
             this.gasto = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // quantidade
             // 
             this.quantidade.AutoSize = true;
-            this.quantidade.Location = new System.Drawing.Point(946, 74);
+            this.quantidade.BackColor = System.Drawing.Color.White;
+            this.quantidade.Location = new System.Drawing.Point(696, 177);
             this.quantidade.Name = "quantidade";
             this.quantidade.Size = new System.Drawing.Size(92, 20);
             this.quantidade.TabIndex = 23;
@@ -68,16 +78,19 @@
             // fornecedor
             // 
             this.fornecedor.AutoSize = true;
-            this.fornecedor.Location = new System.Drawing.Point(799, 74);
+            this.fornecedor.BackColor = System.Drawing.Color.White;
+            this.fornecedor.Location = new System.Drawing.Point(697, 68);
             this.fornecedor.Name = "fornecedor";
             this.fornecedor.Size = new System.Drawing.Size(91, 20);
             this.fornecedor.TabIndex = 22;
             this.fornecedor.Text = "Fornecedor";
+            this.fornecedor.Click += new System.EventHandler(this.fornecedor_Click);
             // 
             // validade
             // 
             this.validade.AutoSize = true;
-            this.validade.Location = new System.Drawing.Point(656, 74);
+            this.validade.BackColor = System.Drawing.Color.White;
+            this.validade.Location = new System.Drawing.Point(480, 177);
             this.validade.Name = "validade";
             this.validade.Size = new System.Drawing.Size(71, 20);
             this.validade.TabIndex = 21;
@@ -86,7 +99,8 @@
             // nome
             // 
             this.nome.AutoSize = true;
-            this.nome.Location = new System.Drawing.Point(516, 74);
+            this.nome.BackColor = System.Drawing.Color.White;
+            this.nome.Location = new System.Drawing.Point(480, 63);
             this.nome.Name = "nome";
             this.nome.Size = new System.Drawing.Size(51, 20);
             this.nome.TabIndex = 20;
@@ -127,7 +141,8 @@
             // preco
             // 
             this.preco.AutoSize = true;
-            this.preco.Location = new System.Drawing.Point(1102, 74);
+            this.preco.BackColor = System.Drawing.Color.White;
+            this.preco.Location = new System.Drawing.Point(892, 68);
             this.preco.Name = "preco";
             this.preco.Size = new System.Drawing.Size(50, 20);
             this.preco.TabIndex = 24;
@@ -136,7 +151,7 @@
             // nometxt
             // 
             this.nometxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(173)))), ((int)(((byte)(55)))));
-            this.nometxt.Location = new System.Drawing.Point(484, 124);
+            this.nometxt.Location = new System.Drawing.Point(484, 92);
             this.nometxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nometxt.Name = "nometxt";
             this.nometxt.Size = new System.Drawing.Size(112, 26);
@@ -145,7 +160,7 @@
             // validadetxt
             // 
             this.validadetxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(173)))), ((int)(((byte)(55)))));
-            this.validadetxt.Location = new System.Drawing.Point(629, 124);
+            this.validadetxt.Location = new System.Drawing.Point(484, 201);
             this.validadetxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.validadetxt.Name = "validadetxt";
             this.validadetxt.Size = new System.Drawing.Size(112, 26);
@@ -154,7 +169,7 @@
             // fornecedortxt
             // 
             this.fornecedortxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(173)))), ((int)(((byte)(55)))));
-            this.fornecedortxt.Location = new System.Drawing.Point(786, 124);
+            this.fornecedortxt.Location = new System.Drawing.Point(700, 92);
             this.fornecedortxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fornecedortxt.Name = "fornecedortxt";
             this.fornecedortxt.Size = new System.Drawing.Size(112, 26);
@@ -163,7 +178,7 @@
             // quantidadetxt
             // 
             this.quantidadetxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(173)))), ((int)(((byte)(55)))));
-            this.quantidadetxt.Location = new System.Drawing.Point(934, 124);
+            this.quantidadetxt.Location = new System.Drawing.Point(700, 201);
             this.quantidadetxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.quantidadetxt.Name = "quantidadetxt";
             this.quantidadetxt.Size = new System.Drawing.Size(112, 26);
@@ -172,7 +187,7 @@
             // precotxt
             // 
             this.precotxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(173)))), ((int)(((byte)(55)))));
-            this.precotxt.Location = new System.Drawing.Point(1076, 124);
+            this.precotxt.Location = new System.Drawing.Point(896, 92);
             this.precotxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.precotxt.Name = "precotxt";
             this.precotxt.Size = new System.Drawing.Size(112, 26);
@@ -181,7 +196,7 @@
             // adicionar
             // 
             this.adicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(173)))), ((int)(((byte)(55)))));
-            this.adicionar.Location = new System.Drawing.Point(793, 185);
+            this.adicionar.Location = new System.Drawing.Point(908, 198);
             this.adicionar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.adicionar.Name = "adicionar";
             this.adicionar.Size = new System.Drawing.Size(84, 29);
@@ -226,16 +241,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 52);
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(21, 355);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 35;
             this.label1.Text = "Nome";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 194);
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(21, 415);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 20);
             this.label3.TabIndex = 37;
@@ -244,16 +262,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 256);
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(20, 479);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 38;
             this.label4.Text = "Quantidade";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(44, 318);
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(20, 533);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 20);
             this.label5.TabIndex = 39;
@@ -261,7 +282,8 @@
             // 
             // nomep
             // 
-            this.nomep.Location = new System.Drawing.Point(18, 84);
+            this.nomep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.nomep.Location = new System.Drawing.Point(24, 381);
             this.nomep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nomep.Name = "nomep";
             this.nomep.Size = new System.Drawing.Size(112, 26);
@@ -269,7 +291,8 @@
             // 
             // fornecedorp
             // 
-            this.fornecedorp.Location = new System.Drawing.Point(18, 225);
+            this.fornecedorp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.fornecedorp.Location = new System.Drawing.Point(24, 439);
             this.fornecedorp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fornecedorp.Name = "fornecedorp";
             this.fornecedorp.Size = new System.Drawing.Size(112, 26);
@@ -277,15 +300,18 @@
             // 
             // quantidadep
             // 
-            this.quantidadep.Location = new System.Drawing.Point(18, 286);
+            this.quantidadep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.quantidadep.Location = new System.Drawing.Point(24, 503);
             this.quantidadep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.quantidadep.Name = "quantidadep";
             this.quantidadep.Size = new System.Drawing.Size(112, 26);
             this.quantidadep.TabIndex = 43;
+            this.quantidadep.TextChanged += new System.EventHandler(this.quantidadep_TextChanged);
             // 
             // precop
             // 
-            this.precop.Location = new System.Drawing.Point(18, 341);
+            this.precop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.precop.Location = new System.Drawing.Point(24, 557);
             this.precop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.precop.Name = "precop";
             this.precop.Size = new System.Drawing.Size(112, 26);
@@ -293,7 +319,7 @@
             // 
             // procurar
             // 
-            this.procurar.Location = new System.Drawing.Point(29, 392);
+            this.procurar.Location = new System.Drawing.Point(157, 557);
             this.procurar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.procurar.Name = "procurar";
             this.procurar.Size = new System.Drawing.Size(84, 29);
@@ -304,7 +330,7 @@
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(278, 64);
+            this.reset.Location = new System.Drawing.Point(12, 611);
             this.reset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(84, 29);
@@ -316,11 +342,62 @@
             // gasto
             // 
             this.gasto.AutoSize = true;
-            this.gasto.Location = new System.Drawing.Point(1272, 74);
+            this.gasto.Location = new System.Drawing.Point(1107, 26);
             this.gasto.Name = "gasto";
             this.gasto.Size = new System.Drawing.Size(103, 20);
             this.gasto.TabIndex = 47;
             this.gasto.Text = "Você gastou:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 304);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(242, 300);
+            this.pictureBox1.TabIndex = 48;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(56, 313);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 20);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Procurar produto";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Location = new System.Drawing.Point(461, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(597, 226);
+            this.pictureBox2.TabIndex = 50;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(696, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 20);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "Adicionar produto";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Bakery_stock.Properties.Resources.MicrosoftTeams_image_removebg_preview;
+            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(25, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(359, 234);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 52;
+            this.pictureBox3.TabStop = false;
             // 
             // Tabela
             // 
@@ -328,6 +405,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1541, 929);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.gasto);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.procurar);
@@ -354,10 +434,15 @@
             this.Controls.Add(this.validade);
             this.Controls.Add(this.nome);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Tabela";
             this.Text = "Tabela";
             this.Load += new System.EventHandler(this.Tabela_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,5 +476,10 @@
         private System.Windows.Forms.Button procurar;
         private System.Windows.Forms.Button reset;
         private System.Windows.Forms.Label gasto;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
