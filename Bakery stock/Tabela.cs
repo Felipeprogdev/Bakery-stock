@@ -76,7 +76,7 @@ namespace Bakery_stock
                 comeca = comeca + calcp;
             }
 
-            gasto.Text = "Você gastou: " + comeca.ToString() + " Esse Mês";
+            gasto.Text = "Você gastou: " + comeca.ToString();
 
             for (int i = 1; i < 16; i++)
             {
@@ -122,43 +122,20 @@ namespace Bakery_stock
 
         private void adicionar_Click(object sender, EventArgs e)
         {
-            string us = "a";
-            int h = 0;
-            // Ler o arquivo JSON existente
+            
             string value = File.ReadAllText("Prod.json");
             List<Produto> produtos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Produto>>(value);
 
             int adicionar = produtos.Count;
 
-            int sa = produtos.Count - 1;
 
-            string sab = sa.ToString();
-
-            Control naoerro = tableLayoutPanel1.GetControlFromPosition(0, 15);
-            int q = Convert.ToInt32(naoerro);
-
-            if (sa == q)
+            if (nometxt.Text != "" || validadetxt.Text != "" || quantidadetxt.Text != "" || precotxt.Text != "")
             {
-                us = naoerro.Text;
-            }
-            
+                var produto = new Produto { Id = adicionar, Nome = nometxt.Text, Validade = DateTime.Parse(validadetxt.Text), Fornecedor = fornecedortxt.Text, Quantidade = Convert.ToInt32(quantidadetxt.Text), Preco = Convert.ToInt32(precotxt.Text) };
+                produtos.Add(produto);
+                File.WriteAllText("Prod.json", Newtonsoft.Json.JsonConvert.SerializeObject(produtos));
 
-
-            if (naoerro != null && sab  == us)
-            {
-                prox();
-                h = 1;
-            }
-
-            if(h != 1)
-            {
-                if (nometxt.Text != "" || validadetxt.Text != "" || quantidadetxt.Text != "" || precotxt.Text != "")
-                {
-                    var produto = new Produto { Id = adicionar, Nome = nometxt.Text, Validade = DateTime.Parse(validadetxt.Text), Fornecedor = fornecedortxt.Text, Quantidade = Convert.ToInt32(quantidadetxt.Text), Preco = Convert.ToInt32(precotxt.Text) };
-                    produtos.Add(produto);
-                    File.WriteAllText("Prod.json", Newtonsoft.Json.JsonConvert.SerializeObject(produtos));
-                    
-                    for (int i = 1; i < 16; i++)
+                for (int i = 1; i < 16; i++)
                 {
                     Control controle = tableLayoutPanel1.GetControlFromPosition(0, i);
 
@@ -190,6 +167,13 @@ namespace Bakery_stock
                         labels6.Text = "R$ " + precotxt.Text; // atribuir o texto do label
                         tableLayoutPanel1.Controls.Add(labels6, 5, i); // adicionar o label na tabela na coluna 5 e na linha i - 1
 
+
+                        int w = Convert.ToInt32(gasto.Text.Substring(12));
+                        int z = Convert.ToInt32(precotxt.Text);
+                        z = w + z;
+                        gasto.Text = "Você gastou: " + z.ToString();
+                        
+
                         i = 5000;
                     }
 
@@ -200,9 +184,40 @@ namespace Bakery_stock
 
                         tableLayoutPanel1.Controls.Clear();
                         CriarLabels();
+
+                        Label labels1 = new Label(); // criar um label para o id do produto
+                        labels1.Text = adicionar.ToString(); // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels1, 0, 1); // adicionar o label na tabela na coluna 2 e na linha i
+
+                        Label labels2 = new Label(); // criar um label para o nome do produto
+                        labels2.Text = nometxt.Text; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels2, 1, 1); // adicionar o label na tabela na coluna 2 e na linha i
+
+                        Label labels3 = new Label(); // criar um label para a quantidade do produto
+                        labels3.Text = quantidadetxt.Text; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels3, 2, 1); // adicionar o label na tabela na coluna 4 e na linha i - 1
+
+
+                        Label labels4 = new Label(); // criar um label para a validade do produto
+                        labels4.Text = validadetxt.Text; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels4, 3, 1); // adicionar o label na tabela na coluna 2 e na linha i
+
+                        Label labels5 = new Label(); // criar um label para o fornecedor do produto
+                        labels5.Text = fornecedortxt.Text; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels5, 4, 1); // adicionar o label na tabela na coluna 3 e na linha i - 1
+
+
+                        Label labels6 = new Label(); // criar um label para o preço do produto
+                        labels6.Text = "R$ " + precotxt.Text; // atribuir o texto do label
+                        tableLayoutPanel1.Controls.Add(labels6, 5, 1); // adicionar o label na tabela na coluna 5 e na linha i - 1
+
+                        int w = Convert.ToInt32(gasto.Text.Substring(12));
+                        int z = Convert.ToInt32(precotxt.Text);
+                        z = w + z;
+                        gasto.Text = "Você gastou: " + z.ToString();
+
                     }
                 }
-            }
 
 
             }
@@ -367,6 +382,7 @@ namespace Bakery_stock
 
         private void procurar_Click(object sender, EventArgs e)
         {
+            DateTime myDate = DateTime.ParseExact("12/12/9999", "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
             // Ler o arquivo JSON existente
             string value = File.ReadAllText("Prod.json");
             List<Produto> produtos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Produto>>(value);
@@ -374,26 +390,14 @@ namespace Bakery_stock
             // Percorrer a lista pelo nome
             int linha = 1;
 
-            if (nomep.Text.ToString() != "" || validadep.Text.ToString() != "" || fornecedorp.Text.ToString() != "" || quantidadep.Text.ToString() != "" || precop.Text.ToString() != "")
+            if (nomep.Text.ToString() != "" || fornecedorp.Text.ToString() != "" || quantidadep.Text.ToString() != "" || precop.Text.ToString() != "")
             {
-                string comparadorf = "";
                 tableLayoutPanel1.Controls.Clear();
                 CriarLabels();
-                int tamanho = validadep.Text.Length;
-
-                if (validadep.Text != "" && tamanho == 10)
-                {
-                    string comparador0 = validade.Text.Substring(0, 2);
-                    string comparador1 = validade.Text.Substring(3, 5);
-                    string comparador2 = validade.Text.Substring(6);
-                    comparadorf = comparador0 + " -" + comparador1 + " -" + comparador2;
-                }
-                
 
 
                 for (int i = 1; i < produtos.Count; i++)
                 {
-                    
 
                     
                     if (produtos[i].Nome.ToLower() == nomep.Text.ToLower() && nomep.Text != "")
@@ -426,36 +430,8 @@ namespace Bakery_stock
                     }
 
                     
-                    else if (produtos[i].Validade.ToString() == comparadorf && validadep.Text != "")
-                    {
-                        Label labels1 = new Label(); // criar um label para o id do produto
-                        labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
-                        tableLayoutPanel1.Controls.Add(labels1, 0, linha);
 
-                        Label labels2 = new Label(); // criar um label para o nome do produto
-                        labels2.Text = produtos[i].Nome; // atribuir o texto do label
-                        tableLayoutPanel1.Controls.Add(labels2, 1, linha);
-
-                        Label labels3 = new Label(); // criar um label para a quantidade do produto
-                        labels3.Text = produtos[i].Quantidade.ToString(); // atribuir o texto do label
-                        tableLayoutPanel1.Controls.Add(labels3, 2, linha);
-
-                        Label labels4 = new Label(); // criar um label para a validade do produto
-                        labels4.Text = produtos[i].Validade.ToString(); // atribuir o texto do label
-                        tableLayoutPanel1.Controls.Add(labels4, 3, linha);
-
-                        Label labels5 = new Label(); // criar um label para o fornecedor do produto
-                        labels5.Text = produtos[i].Fornecedor; // atribuir o texto do label
-                        tableLayoutPanel1.Controls.Add(labels5, 4, linha);
-
-                        Label labels6 = new Label(); // criar um label para o preço do produto
-                        labels6.Text = "R$ " + produtos[i].Preco.ToString(); // atribuir o texto do label
-                        tableLayoutPanel1.Controls.Add(labels6, 5, linha);
-                        linha = linha + 1;
-
-                    }
-
-                    else if (produtos[i].Fornecedor.ToString() == fornecedorp.Text.ToUpper() && fornecedorp.Text != "")
+                    else if (produtos[i].Fornecedor.ToString().ToUpper() == fornecedorp.Text.ToUpper() && fornecedorp.Text != "")
                     {
                         Label labels1 = new Label(); // criar um label para o id do produto
                         labels1.Text = produtos[i].Id.ToString(); // atribuir o texto do label
