@@ -140,7 +140,7 @@ namespace Bakery_stock
 
             Control naoerro = tableLayoutPanel1.GetControlFromPosition(0, 15);
 
-            if (naoerro != null)
+            if (naoerro != null && )
             {
                 prox();
                 h = 1;
