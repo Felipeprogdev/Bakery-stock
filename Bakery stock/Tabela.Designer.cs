@@ -153,7 +153,7 @@
             // fornecedortxt
             // 
             this.fornecedortxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(173)))), ((int)(((byte)(55)))));
-            this.fornecedortxt.Location = new System.Drawing.Point(691, 99);
+            this.fornecedortxt.Location = new System.Drawing.Point(687, 99);
             this.fornecedortxt.Name = "fornecedortxt";
             this.fornecedortxt.Size = new System.Drawing.Size(100, 22);
             this.fornecedortxt.TabIndex = 28;
@@ -321,9 +321,9 @@
             this.gasto.AutoSize = true;
             this.gasto.Location = new System.Drawing.Point(1131, 59);
             this.gasto.Name = "gasto";
-            this.gasto.Size = new System.Drawing.Size(89, 16);
+            this.gasto.Size = new System.Drawing.Size(86, 16);
             this.gasto.TabIndex = 47;
-            this.gasto.Text = "Você gastou: ";
+            this.gasto.Text = "Você gastou:";
             // 
             // Tabela
             // 
